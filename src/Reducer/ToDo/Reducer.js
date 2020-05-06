@@ -4,7 +4,7 @@ const initialState = {
     data : []
 }
 
-const reducer = (state = initialState, action) => {
+const Reducer = (state = initialState, action) => {
     switch (action.type) {
         case Insert_TODO:
 
@@ -18,3 +18,5 @@ const reducer = (state = initialState, action) => {
     }
 
 }
+
+export default Reducer;
