@@ -1,7 +1,7 @@
-import {Toggle_TODO,Insert_TODO} from "./Types";
+import {Toggle_TODO, Insert_TODO} from "./Types";
 
 const initialState = {
-    data : []
+    data: []
 }
 
 const Reducer = (state = initialState, action) => {
@@ -21,10 +21,26 @@ const Reducer = (state = initialState, action) => {
 
 
         case Toggle_TODO:
+            const {id} = action.payload
+            return {
+                ...state,
+                data: state.data.map((row) => {
+                    if (row.id === id) {
+                        return {
+                            id: row.id,
+                            content: row.content,
+                            complete: !row.complete
+                        }
+                    } else {
+                        return row
+                    }
+
+                })
+            }
 
 
-
-        default : return state
+        default :
+            return state
 
     }
 

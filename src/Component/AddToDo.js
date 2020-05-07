@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {insertTodo} from '../Redux/ToDo/Action.js'
 
 
 class AddToDo extends Component {
@@ -15,7 +17,10 @@ class AddToDo extends Component {
         })
     }
 
-    clickHandler
+    clickHandler = () =>{
+        this.props.insertTodo (this.state.input)
+        this.setState({input: ''})
+    }
 
 
     render() {
@@ -28,4 +33,4 @@ class AddToDo extends Component {
     }
 }
 
-export default AddToDo;
+export default connect(null,{insertTodo}) (AddToDo) ;
